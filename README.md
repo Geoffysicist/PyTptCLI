@@ -1,6 +1,9 @@
 # PyTptCLI
 Template for single python scripts run from command line interface.
 
+The template is designed to receive settings passed using a single yaml file.
+This of course can be changed.
+
 Based on structure suggested by [Python Application Layouts: A Reference
 by Kyle Stratis](https://realpython.com/python-application-layouts/)
 
