@@ -9,6 +9,11 @@ examples.
   bar = foo.public_method(required_variable, optional_variable=42)
 """
 
+import argparse
+from pathlib import Path
+import yaml
+import sys
+
 class SampleClass(object):
     """Summary of class here.
     Longer class information after leaving a line...
@@ -49,3 +54,21 @@ def function_name(required_variable, optional_variable=None):
         NoError: but if it did you would describe it here
     """
     return None
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('settings_path', help='the relative path (including filename) to the settings yaml')
+    args = parser.parse_args()
+    
+    settings_pth = Path(args.settings_path)
+    
+    try:
+        with open(settings_pth) as f:
+            settings = yaml.safe_load(f)
+    except FileNotFoundError as e:
+        msg = f'the settings yaml file "{settings_pth}" can not be found'
+        print(msg)
+        sys.exit('\nExiting\n')
+    
+    print(settings)
+            

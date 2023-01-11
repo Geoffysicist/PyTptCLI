@@ -1,0 +1,7 @@
+Parameters:
+  param1: This parameter
+  param2: # that parameter has sub parameters
+    param2_1: #This sub parameter is a list
+      - param2_1_list_element_1
+      - param2_1_list_element_2
+    param2_2: foo #because what would a python example be without a foo?
